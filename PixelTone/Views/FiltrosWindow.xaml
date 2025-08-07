@@ -1,0 +1,284 @@
+﻿<Window x:Class="PixelTone.Views.FiltrosWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PixelTone.Views"
+        mc:Ignorable="d"
+        Title="FiltrosWindow" 
+        Height="808" 
+        Width="1000"
+        Background="#292929"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- Barra superior -->
+        <Grid Background="#1E1E1E" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="/Assests/Logo.png" Width="28" Margin="12,1,0,1" HorizontalAlignment="Left"/>
+            <TextBlock Text=" Filtros" 
+                       FontSize="14" 
+                       FontWeight="Bold" 
+                       Foreground="#8E8E93" 
+                       VerticalAlignment="Center" 
+                       Margin="45,0,621,0" Grid.ColumnSpan="2"/>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <Button Content="_" 
+                        ToolTip="Minimizar" 
+                        Width="30" 
+                        Margin="5,0" 
+                        Click="MinimizeWindow" 
+                        Background="Transparent" 
+                        Foreground="#8E8E93" 
+                        BorderThickness="0" 
+                        FontSize="16"/>
+                <Button Content="X" 
+                        ToolTip="Cerrar" 
+                        Width="30" 
+                        Margin="5,0" 
+                        Click="CloseWindow" 
+                        Background="Transparent" 
+                        Foreground="#8E8E93" 
+                        BorderThickness="0" 
+                        FontSize="16"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Contenido principal -->
+        <Grid Margin="0,30,10,10" Background="#292929">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Panel lateral de filtros -->
+            <Border Grid.Row="1" Grid.Column="0" Background="#1E1E1E" Width="50" Margin="0,0,10,56">
+                <StackPanel>
+                    <Button Margin="5" 
+                            Height="40" 
+                            Click="InicioButton_Click" 
+                            Background="Transparent" 
+                            BorderThickness="0">
+                        <Image Source="/Assests/Filtros/Home_Icon.png" Width="40" Height="40"/>
+                    </Button>
+
+                    <Button Margin="5" 
+                            Height="40" 
+                            Background="Transparent" 
+                            BorderThickness="0" 
+                            Click="FiltrosButton_Click">
+                        <Image Source="/Assests/Filtros/Filtro_Icon.png" Width="40" Height="40"/>
+                    </Button>
+
+                    <Popup x:Name="FiltrosPopup" 
+                           Placement="Right" 
+                           PlacementTarget="{Binding ElementName=FiltrosButton}" 
+                           StaysOpen="False">
+                        <Border Background="#2e2e2e" 
+                                Padding="5" 
+                                CornerRadius="1">
+                            <ListBox x:Name="FiltrosListBox" 
+                                     Background="#2e2e2e" 
+                                     Foreground="#8E8E93" 
+                                     BorderThickness="0" 
+                                     Width="170"
+                                     SelectionChanged="FiltrosListBox_SelectionChanged">
+                                <ListBoxItem Content="Pixelado"/>
+                                <ListBoxItem Content="Negativo"/>
+                                <ListBoxItem Content="Degradado"/>
+                                <ListBoxItem Content="Aberración Cromática"/>
+                                <ListBoxItem Content="Brillo"/>
+                                <ListBoxItem Content="Ruido"/>
+                                <ListBoxItem Content="Umbral Adaptativo"/>
+                                <ListBoxItem Content="Rojo"/>
+                                <ListBoxItem Content="Verde"/>
+                                <ListBoxItem Content="Azul"/>
+                                <ListBoxItem Content="Sobel"/>
+                            </ListBox>
+                        </Border>
+                    </Popup>
+                </StackPanel>
+            </Border>
+
+            <!-- Área de trabajo -->
+            <Border Grid.Row="1" Background="#3E3E3E" Margin="50,0,-9,0" Grid.ColumnSpan="2" Height="504" VerticalAlignment="Top">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Botones de carga y reversión -->
+                    <Grid Grid.Row="0" Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Botón de importar -->
+                        <Button x:Name="ImportarButton"
+                    Grid.Column="0" 
+                    HorizontalAlignment="Left" 
+                    Background="Transparent" 
+                    BorderThickness="0" 
+                    Click="ImportarButton_Click">
+                            <Image Source="/Assests/Filtros/Export_Icon.png" Width="50" Height="44"/>
+                        </Button>
+
+                        <!-- Botón de revertir -->
+                        <Button x:Name="RevertirButton" 
+                    Grid.Column="1" 
+                    HorizontalAlignment="Right" 
+                    Background="Transparent" 
+                    BorderThickness="0" 
+                    Click="RevertirButton_Click">
+                            <Image Source="/Assests/Filtros/Back_Icon.png" Width="24" Height="24"/>
+                        </Button>
+                    </Grid>
+
+                    <!-- Comparación antes/después -->
+                    <Grid Grid.Row="1" Margin="10,10,10,66">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Área de "Antes" -->
+                        <Border Background="#1E1E1E" Width="400" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="AntesContentControl">
+                                <Image x:Name="AntesImage" Stretch="Uniform" Visibility="Collapsed"/>
+                                <MediaElement x:Name="AntesVideo" Stretch="Uniform" Visibility="Collapsed"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- Flecha de separación -->
+                        <TextBlock Grid.Column="1" 
+                                   Text="→" 
+                                   FontSize="24" 
+                                   VerticalAlignment="Center" 
+                                   Margin="10,0" 
+                                   Foreground="#8E8E93"/>
+
+                        <!-- Área de "Después" -->
+                        <Border Grid.Column="2" Background="#1E1E1E" Width="400" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid x:Name="DespuesContentControl">
+                                <Image x:Name="DespuesImage" Stretch="Uniform" Visibility="Collapsed"/>
+                                <MediaElement x:Name="DespuesVideo" Stretch="Uniform" Visibility="Collapsed" LoadedBehavior="Manual"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                    <!-- Botones de control -->
+                    <StackPanel x:Name="VideoButtonsPanel" 
+            Grid.Row="2" 
+            Orientation="Horizontal" 
+            HorizontalAlignment="Center" 
+            Margin="0,10,0,10" 
+            Visibility="Collapsed">
+                        <!-- Botón de reproducir -->
+                        <Button HorizontalAlignment="Center"
+            ToolTip="Reproducir" 
+            Width="40" 
+            Margin="5,0" 
+            Background="Transparent" 
+            Foreground="#8E8E93" 
+            BorderThickness="0"
+            Click="PlayButton_Click">
+                            <Image Source="/Assests/Filtros/Play_Icon.png" Width="40" Height="40"/>
+                        </Button>
+
+                        <!-- Botón de pausa -->
+                        <Button HorizontalAlignment="Center"
+            ToolTip="Pausa" 
+            Width="40" 
+            Margin="5,0" 
+            Background="Transparent" 
+            Foreground="#8E8E93" 
+            BorderThickness="0"
+            Click="PauseButton_Click">
+                            <Image Source="/Assests/Filtros/Pause_Icon.png" Width="40" Height="40"/>
+                        </Button>
+
+                        <!-- Botón de detener -->
+                        <Button HorizontalAlignment="Center"
+            ToolTip="Detener" 
+            Width="40" 
+            Margin="5,0" 
+            Background="Transparent" 
+            Foreground="#8E8E93" 
+            BorderThickness="0"
+            Click="StopButton_Click">
+                            <Image Source="/Assests/Filtros/Stop_Icon.png" Width="23" Height="23"/>
+                        </Button>
+                    </StackPanel>
+
+
+                    <!-- Botón de exportar (esquina inferior derecha) -->
+                    <Button x:Name="ExportarButton"
+                Grid.Row="2" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Bottom" 
+                Background="Transparent" 
+                BorderThickness="0" 
+                Margin="10"
+                Click="ExportarButton_Click"
+                IsEnabled="False"
+                Visibility="Collapsed">
+                        <Image Source="/Assests/Filtros/Import_Icon.png" Width="72" Height="61"/>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Histograma -->
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#1E1E1E" Padding="25" Margin="0,504,-9,-10" Grid.RowSpan="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Histograma Antes -->
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Histograma Antes" Foreground="#8E8E93" HorizontalAlignment="Center"/>
+                        <Image x:Name="HistogramaAntes" Width="400" Height="150" Stretch="Uniform"/>
+                        <ComboBox x:Name="CanalAntesComboBox" SelectionChanged="CanalAntesComboBox_SelectionChanged" Width="100" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="RGB" IsSelected="True"/>
+                            <ComboBoxItem Content="R"/>
+                            <ComboBoxItem Content="G"/>
+                            <ComboBoxItem Content="B"/>
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Histograma Después -->
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Histograma Después" Foreground="#8E8E93" HorizontalAlignment="Center"/>
+                        <Image x:Name="HistogramaDespues" Width="400" Height="150" Stretch="Uniform"/>
+                        <ComboBox x:Name="CanalDespuesComboBox" SelectionChanged="CanalDespuesComboBox_SelectionChanged" Width="100" HorizontalAlignment="Center">
+                            <ComboBoxItem Content="RGB" IsSelected="True"/>
+                            <ComboBoxItem Content="R"/>
+                            <ComboBoxItem Content="G"/>
+                            <ComboBoxItem Content="B"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Window>

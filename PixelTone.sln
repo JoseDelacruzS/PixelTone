@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelTone", "PixelTone\PixelTone.csproj", "{7FB680AF-578C-4244-B2C0-3542DB35E37B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Debug|x64.ActiveCfg = Debug|x64
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Debug|x64.Build.0 = Debug|x64
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Release|x64.ActiveCfg = Release|x64
+		{7FB680AF-578C-4244-B2C0-3542DB35E37B}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41B9EBD3-8465-40A2-BD76-981E3AF77308}
+	EndGlobalSection
+EndGlobal

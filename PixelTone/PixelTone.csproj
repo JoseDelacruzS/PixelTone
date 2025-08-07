@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>PixelTone</AssemblyName>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assests\Camara\Camera_Icon.png" />
+    <None Remove="Assests\Filtros\Back_Icon.png" />
+    <None Remove="Assests\Filtros\Export_Icon.png" />
+    <None Remove="Assests\Filtros\Filtro_Icon.png" />
+    <None Remove="Assests\Filtros\Home_Icon.png" />
+    <None Remove="Assests\Filtros\Import_Icon.png" />
+    <None Remove="Assests\Filtros\Play_Icon.png" />
+    <None Remove="Assests\Filtros\Stop_Icon.png" />
+    <None Remove="Assests\Logo.png" />
+    <None Remove="Assests\Menu principal\Img_box.png" />
+    <None Remove="Assests\Menu principal\insta.png" />
+    <None Remove="Assests\Menu principal\Video_file.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AForge.Video" Version="2.2.5" />
+    <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />
+    <PackageReference Include="Emgu.CV" Version="4.10.0.5680" />
+    <PackageReference Include="Emgu.CV.runtime.windows" Version="4.10.0.5680" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739" />
+    <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assests\Camara\Camera_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Back_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Export_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Filtro_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Home_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Import_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Play_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Pause_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Filtros\Stop_Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Menu principal\Img_box.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assests\Menu principal\insta.png" />
+    <Resource Include="Assests\Menu principal\Video_file.png" />
+  </ItemGroup>
+
+</Project>

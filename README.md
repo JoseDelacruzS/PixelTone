@@ -35,12 +35,6 @@
 
 ---
 
-## 📸 Capturas de pantalla
-
-<sub>*Agrega aquí capturas de la interfaz de cada módulo*</sub>
-
----
-
 ## 🚀 Cómo ejecutar el proyecto
 
 1. Clona este repositorio:

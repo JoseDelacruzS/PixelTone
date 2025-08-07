@@ -28,10 +28,6 @@
 
 - **Lenguaje:** C#
 - **Framework:** WPF (.NET 8)
-- **Librerías externas:**
-  - `Emgu.CV` (wrapper de OpenCV para .NET)
-  - `FFmpeg` (opcional para procesamiento de video)
-  - `LiveCharts` (para generación de histogramas visuales)
 
 ---
 
